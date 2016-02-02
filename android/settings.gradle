@@ -1,0 +1,3 @@
+rootProject.name = 'jblyrn'
+
+include ':app'
