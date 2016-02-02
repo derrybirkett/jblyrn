@@ -28,12 +28,6 @@ class jblyrn extends Component {
    }
 }
 var styles = React.StyleSheet.create({
-  text: {
-    color: 'black',
-    backgroundColor: 'white',
-    fontSize: 30,
-    margin: 80
-  },
   container: {
     flex: 1
   }

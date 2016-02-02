@@ -1,9 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
-
 import React, {
   AppRegistry,
   Component,
@@ -62,7 +57,7 @@ class Results extends Component {
     return (
       <View style={styles.container}>
         <Text>
-          Loading movies...
+          Loading Jobs...
         </Text>
       </View>
     );
@@ -71,10 +66,10 @@ class Results extends Component {
   renderJobs(job) {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
+        <Text style={styles.title}>
           {job.title}
         </Text>
-        <Text style={styles.instructions}>
+        <Text style={styles.location}>
           {job.location}
         </Text>
       </View>
@@ -88,17 +83,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-    paddingTop: 75,  
+    paddingTop: 75,
   },
-  welcome: {
+  title: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
+  location: {
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f6f6f6',
   },
   listView: {
     paddingTop: 20,
