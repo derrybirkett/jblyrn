@@ -5,7 +5,9 @@ import React, {
   StyleSheet,
   Text,
   View,
-  ListView
+  ListView,
+  TouchableHighlight,
+  LinkingIOS
 } from 'react-native';
 
 var REQUEST_URL = "https://jobs.github.com/positions.json";
@@ -63,16 +65,23 @@ class Results extends Component {
     );
   }
 
+  onPressButton(url) {
+    alert('Hi!');
+    LinkingIOS.openURL(url);
+  }
+
   renderJobs(job) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>
-          {job.title}
-        </Text>
-        <Text style={styles.location}>
-          {job.location}
-        </Text>
-      </View>
+      <TouchableHighlight onPress={() => { LinkingIOS.openURL(job.url); }}>
+        <View style={styles.container}>
+              <Text style={styles.title}>
+                {job.title}
+              </Text>
+              <Text style={styles.location}>
+                {job.company} - {job.location}
+              </Text>
+        </View>
+      </TouchableHighlight>
     );
   }
 }
@@ -83,7 +92,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-    paddingTop: 75,
+    paddingBottom: 30,
+    paddingTop: 30,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+    borderStyle: 'solid'
   },
   title: {
     fontSize: 20,
@@ -92,10 +105,7 @@ const styles = StyleSheet.create({
   },
   location: {
     textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f6f6f6',
+    color: '#999'
   },
   listView: {
     paddingTop: 20,
